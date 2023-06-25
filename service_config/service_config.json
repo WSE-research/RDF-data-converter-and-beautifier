@@ -1,0 +1,8 @@
+{
+    "services": [{
+        "mode": "dockerfile",
+        "port": "40123:8501",
+        "image": "wseresearch/rdf-data-converter-and-beautifier",
+        "tag": "latest"
+    }]
+}
