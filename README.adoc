@@ -1,0 +1,63 @@
+:toc:
+:toclevels: 5
+:toc-placement!:
+:source-highlighter: highlight.js
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+= RDF data converter and beautifier
+
+This tool enables you to interactively convert RDF data between different formats and beautifies your RDF data.
+
+Currently supported formats are: 
+
+* https://www.w3.org/TR/turtle/[RDF Turtle]
+* https://www.w3.org/TR/json-ld11/[JSON-LD]
+* https://www.w3.org/TR/rdf-syntax-grammar/[RDF XML ]
+* https://www.w3.org/TR/n-triples/[N-Triples (nt)]
+* https://www.w3.org/TeamSubmission/n3/[Notation3 (n3)]
+
+The tool was implemented using https://www.python.org/[Python 3], https://streamlit.io/[Streamlit], and https://github.com/RDFLib/rdflib[RDFLib].
+
+toc::[]
+
+== Online demo
+
+The demo is available at http://demos.swe.htwk-leipzig.de:40123/.
+
+== Run the tool locally
+
+=== Run using Python
+
+You can run the tool locally by installing Python and the project dependencies and running the following command in the root directory of this repository:
+
+[source, bash]
+----
+python -m pip install -r requirements.txt
+streamlit run rdf_data_converter_and_beautifier.py --server.port=8501 --server.address=0.0.0.0
+----
+
+The tool will then be available at http://localhost:8501/.
+
+=== Building a Docker image locally and starting a Docker container
+
+Alternatively, you can run the tool using https://www.docker.com/[Docker] by running the following command in the root directory of this repository. 
+This will build a Docker image and run it in a container.
+
+[source, bash]
+----
+docker build -t rdf_data_converter_and_beautifier:latest .
+docker run -p 8501:8501 rdf_data_converter_and_beautifier:latest
+----
+
+The tool will then be available at http://localhost:8501/.
+
+== Disclaimer
+
+This tool is not storing any data. All data is processed in memory and is not persisted.
+This tool is provided "as is" and without any warranty, express or implied.
