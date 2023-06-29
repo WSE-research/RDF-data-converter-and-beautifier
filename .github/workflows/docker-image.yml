@@ -27,7 +27,7 @@ jobs:
       run: docker push wseresearch/${{ secrets.DOCKER_IMAGE_NAME }}:latest
     - name: Push docker image version
       if: startsWith(github.ref, 'refs/tags/')
-      run: docker push "${{ secrets.DOCKER_IMAGE_NAME }}:${{ github.ref_name }}"
+      run: docker push "wseresearch/${{ secrets.DOCKER_IMAGE_NAME }}:${{ github.ref_name }}"
     - name: Init update
       if: startsWith(github.ref, 'refs/tags/')
       uses: MindMaster98/docker-service-updater@v0.2.0
