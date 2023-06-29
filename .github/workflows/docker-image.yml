@@ -1,8 +1,6 @@
 name: Docker Image CI
 
-on: 
-  push:
-    branches: [ main, master, automated-deployment-test ]
+on: push
 
 jobs:
   build:
