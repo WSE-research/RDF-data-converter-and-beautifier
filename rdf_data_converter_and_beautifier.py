@@ -6,6 +6,7 @@ from streamlit.components.v1 import html
 from rdflib import Graph
 from util import SUPPORTED_LAYOUT_LEFT_RIGHT, SUPPORTED_LAYOUT_TOP_DOWN, SUPPORTED_LAYOUT, markdown_format, is_layout_left_right, is_layout_top_down, label_visibility, read_example_file_to_markdown, include_css
 from PIL import Image
+import base64
 
 import logging
 
@@ -14,7 +15,8 @@ EDITOR_KEY = "editor"
 RDF_LOGO_SVG = "https://cygri.github.io/rdf-logos/svg/rdf.svg"
 PAGE_ICON = "images/rdf_data_converter_and_beautifier.png"
 DESCRIPTION = """
-This tool enables you to interactively convert RDF data between different formats and beautifies your RDF data.
+This tool enables you to interactively convert RDF data between different formats and beautifies your RDF data. 
+Please see our [GitHub repository](https://github.com/WSE-research/RDF-data-converter-and-beautifier/) for more information and how to deploy the tool locally.
                     
 You can use the editor to enter RDF data in one of the supported formats (use the select boxes to define your input and output format).
 It is also possible to configure the layout of the application in the sidebar. 
@@ -48,6 +50,18 @@ result_key = "output_format_select"
 
 
 with st.sidebar:
+    
+    with open("images/rdf_data_converter_and_beautifier.png", "rb") as f:
+        image_data = base64.b64encode(f.read()).decode("utf-8")
+        st.sidebar.markdown(
+            f"""
+            <div style="display:table;margin-top:-20%;margin-bottom:5%;text-align:center">
+                <a href="https://github.com/WSE-research/RDF-data-converter-and-beautifier/" title="go to GitHub repository"><img src="data:image/png;base64,{image_data}" style="width:25%;"></a>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
     st.subheader("Configuration")
     agree_on_showing_additional_information = not st.checkbox(
         'minimize layout', value=(not agree_on_showing_additional_information))
@@ -57,7 +71,7 @@ with st.sidebar:
         'Select layout:', SUPPORTED_LAYOUT, key="layout_format_select")
 
     include_css(st, ["css/style_streamlit_expander.css",
-                "css/style_menu_logo.css"])
+                "css/style_menu_logo.css", "css/style_github_ribbon.css"])
     st.subheader("Example data")
     st.write("Copy and paste the example data into the editor.")
     with st.expander("Turtle (ttl) example"):
@@ -191,3 +205,11 @@ See our [GitHub team page](http://wse.technology/) for more projects and tools.
 with open("js/change_menu.js", "r") as f:
     javascript = f.read()
     html(f"<script style='display:none'>{javascript}</script>")
+
+html("""
+<script>
+github_ribbon = parent.window.document.createElement("div");            
+github_ribbon.innerHTML = '<a class="github-fork-ribbon right-bottom" href="https://github.com/WSE-research/RDF-data-converter-and-beautifier/" target="_blank" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>';
+parent.window.document.body.appendChild(github_ribbon.firstChild);
+</script>
+""")

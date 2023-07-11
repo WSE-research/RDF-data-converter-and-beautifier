@@ -14,7 +14,7 @@ endif::[]
 
 
 ++++
-<a href="https://github.com/search?q=topic%3Aqado+org%3AWSE-research&type=Repositories" title="see all QADO repositories">
+<a href="https://github.com/WSE-research/RDF-data-converter-and-beautifier/" title="go to GitHub repository">
 <img align="right" role="right" height="128" src="https://github.com/WSE-research/RDF-data-converter-and-beautifier/blob/main/images/rdf_data_converter_and_beautifier.png?raw=true"/>
 </a>
 ++++
@@ -37,9 +37,11 @@ The tool was implemented using https://www.python.org/[Python 3], https://stream
 
 toc::[]
 
+---
+
 == Online demo
 
-The demo is available at http://demos.swe.htwk-leipzig.de:40123/.
+The demo is available at https://demos.swe.htwk-leipzig.de/rdf-data-converter-and-beautifier/.
 
 == Run the tool locally
 
@@ -67,6 +69,12 @@ docker run -p 8501:8501 rdf_data_converter_and_beautifier:latest
 ----
 
 The tool will then be available at http://localhost:8501/.
+
+== Contribute
+
+We are happy to receive your contributions. 
+Please create a pull request or an https://github.com/WSE-research/RDF-data-converter-and-beautifier/issues/new[issue].
+As this tool is published under the https://github.com/WSE-research/RDF-data-converter-and-beautifier/blob/main/LICENSE[MIT license], feel free to https://github.com/WSE-research/RDF-data-converter-and-beautifier/fork[fork] it and use it in your own projects.
 
 == Disclaimer
 
