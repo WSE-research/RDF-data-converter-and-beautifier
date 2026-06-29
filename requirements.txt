@@ -1,6 +1,6 @@
 html5lib==1.1
 pandas==1.5.3
-Pillow==9.5.0
+Pillow==12.2.0
 rdflib==6.2.0
 Requests==2.34.2
 streamlit==1.58.0
