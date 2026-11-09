@@ -1,9 +1,9 @@
 html5lib==1.1
-pandas==3.1.0
+pandas==3.1.1
 Pillow==13.0.0
 rdflib==7.6.0
 Requests==2.34.2
-streamlit==1.66.1
+streamlit==1.67.0
 streamlit_ace==0.1.1
 streamlit_chat==0.1.1
 streamlit_extras==1.6.0
